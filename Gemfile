@@ -59,6 +59,7 @@ gem 'sidekiq', '~> 5.0', '>= 5.0.5'
 
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
+gem 'factory_bot_rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -74,6 +75,9 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.9', '>= 1.9.1', require: false
   gem 'rubocop-rails', '~> 2.9', '>= 2.9.1', require: false
   gem 'rubocop-rspec', '~> 2.1', require: false
+
+  # Increase your application's performance by reducing the number of queries it makes.
+  gem 'bullet', '~> 7.0'
 end
 
 group :test do
@@ -100,8 +104,6 @@ group :development do
   gem 'brakeman'
   # bundler-audit provides patch-level verification for Bundled apps.
   gem 'bundler-audit', '~> 0.9.0.1'
-  # Increase your application's performance by reducing the number of queries it makes.
-  gem 'bullet', '~> 7.0'
   # Checks the consistency of the database constraints with the application validations
   gem 'database_consistency', '~> 1.1', '>= 1.1.1'
   # Check various places in your code that could be faster.
