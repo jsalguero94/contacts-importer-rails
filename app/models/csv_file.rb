@@ -3,5 +3,5 @@ class CsvFile < ApplicationRecord
   has_one_attached :csv
   enum :status, { 'On Hold': 0, Processing: 1, Failed: 2, Finished: 3 }
 
-  validates :name, absence: true
+  validates :csv, presence: true
 end

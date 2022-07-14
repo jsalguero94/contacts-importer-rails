@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :csv_file do
-    name { 'file1.csv' }
     association :user
+    csv { Rack::Test::UploadedFile.new('spec/support/fixtures/contact1.csv', 'csv') }
   end
 end
