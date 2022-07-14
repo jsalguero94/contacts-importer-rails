@@ -59,7 +59,12 @@ gem 'sidekiq', '~> 5.0', '>= 5.0.5'
 
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
+
+# A library for setting up Ruby objects as test data.
 gem 'factory_bot_rails'
+
+# Ruby gem validation for credit card
+gem 'credit_card_validations'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

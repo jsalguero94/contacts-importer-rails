@@ -75,7 +75,22 @@ RSpec.describe Contact, type: :model do
   end
 
   describe 'credit card' do
-    it 'has valid format'
+    it 'validates number' do
+      cc = build :contact, credit_card: 1234
+      expect(cc).not_to be_valid
+      cc = build :contact, credit_card: 4_222_318_270_101_116
+      expect(cc).to be_valid
+    end
+
+    it 'auto assign credit card network' do
+      cc = create :contact, credit_card: 4_111_111_111_111_111, credit_card_network: nil
+      expect(cc.credit_card_network).to eq 'Visa'
+    end
+
+    it 'saves last 4 numbers' do
+      cc = create :contact, credit_card: 4_111_111_111_111_111
+      expect(cc.cc_last_four_numbers).to eq 1111
+    end
   end
 
   describe 'associations' do
