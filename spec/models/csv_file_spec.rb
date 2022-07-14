@@ -6,7 +6,7 @@ RSpec.describe CsvFile, type: :model do
       expect(build(:csv_file)).to be_valid
     end
 
-    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_absence_of :name }
 
     it { is_expected.to define_enum_for(:status).with_values([:'On Hold', :Processing, :Failed, :Finished]) }
 
