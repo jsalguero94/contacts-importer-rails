@@ -97,6 +97,9 @@ GEM
     concurrent-ruby (1.1.10)
     connection_pool (2.2.5)
     crass (1.0.6)
+    credit_card_validations (5.0.0)
+      activemodel (>= 5.2, < 7.1)
+      activesupport (>= 5.2, < 7.1)
     cssbundling-rails (1.1.1)
       railties (>= 6.0.0)
     database_consistency (1.1.15)
@@ -360,6 +363,7 @@ DEPENDENCIES
   brakeman
   bullet (~> 7.0)
   bundler-audit (~> 0.9.0.1)
+  credit_card_validations
   cssbundling-rails
   database_consistency (~> 1.1, >= 1.1.1)
   debug
