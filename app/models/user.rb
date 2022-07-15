@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :csv_files, dependent: :destroy
   has_many :contacts, dependent: :destroy
+  has_many :contact_logs, dependent: :destroy
 end
