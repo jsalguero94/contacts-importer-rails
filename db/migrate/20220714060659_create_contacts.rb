@@ -5,7 +5,7 @@ class CreateContacts < ActiveRecord::Migration[7.0]
       t.date :date_of_birth
       t.string :phone
       t.string :address
-      t.integer :credit_card
+      t.string :credit_card
       t.integer :cc_last_four_numbers, limit: 4
       t.integer :credit_card_network
       t.string :email

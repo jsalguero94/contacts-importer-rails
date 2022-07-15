@@ -34,9 +34,10 @@ class Contact < ApplicationRecord
   end
 
   def save_last_4_numbers
-    self.cc_last_four_numbers = credit_card.to_s[-4..].to_i
+    self.cc_last_four_numbers = credit_card[-4..]
   end
 
   def encrypt_credit_card
+    self.credit_card = BCrypt::Password.create(credit_card)
   end
 end
