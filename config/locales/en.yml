@@ -32,4 +32,4 @@
 en:
   csv_files:
     create:
-      success: "Csv file was uploaded successfully."
+      success: "Csv file uploaded successfully."
