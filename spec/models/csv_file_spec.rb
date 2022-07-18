@@ -28,6 +28,23 @@ RSpec.describe CsvFile, type: :model do
     end
   end
 
+  describe 'name' do
+    it "saves name's file" do
+      csv_file = create :csv_file
+      expect(csv_file.name).to eq 'contact1.csv'
+    end
+
+    it 'is csv file' do
+      csv_file = build :csv_file
+      expect(csv_file).to be_valid
+    end
+
+    it 'is not csv file' do
+      csv_file = build :csv_file, csv: Rack::Test::UploadedFile.new('spec/support/fixtures/contact1.txt')
+      expect(csv_file).not_to be_valid
+    end
+  end
+
   describe 'associations' do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to have_many(:contacts) }

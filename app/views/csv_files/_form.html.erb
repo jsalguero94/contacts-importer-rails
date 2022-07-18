@@ -1,0 +1,20 @@
+<%= form_with(model: csv_file) do |form| %>
+  <% if csv_file.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(csv_file.errors.count, "error") %> prohibited this csv file from being saved:</h2>
+
+      <ul>
+        <% csv_file.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div>
+    <%= form.label 'upload csv'  %>
+    <%= form.file_field :csv  %>
+    <%= form.submit  %>
+  </div>
+<% end %>
