@@ -7,7 +7,7 @@ class CreateContactLogs < ActiveRecord::Migration[7.0]
       t.string :address
       t.string :credit_card
       t.integer :cc_last_four_numbers, limit: 4
-      t.integer :credit_card_network
+      t.string :credit_card_network
       t.string :email
       t.string :error_message
       t.references :user, null: false, foreign_key: true
