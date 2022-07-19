@@ -1,3 +1,32 @@
+# == Schema Information
+#
+# Table name: contacts
+#
+#  id                   :bigint           not null, primary key
+#  address              :string
+#  cc_last_four_numbers :integer
+#  credit_card          :string
+#  credit_card_network  :integer
+#  date_of_birth        :date
+#  email                :string
+#  name                 :string
+#  phone                :string
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  csv_file_id          :bigint           not null
+#  user_id              :bigint           not null
+#
+# Indexes
+#
+#  index_contacts_on_csv_file_id        (csv_file_id)
+#  index_contacts_on_email_and_user_id  (email,user_id) UNIQUE
+#  index_contacts_on_user_id            (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (csv_file_id => csv_files.id)
+#  fk_rails_...  (user_id => users.id)
+#
 class Contact < ApplicationRecord
   before_save :credit_card_assignments
 
