@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_15_055849) do
     t.string "address"
     t.string "credit_card"
     t.integer "cc_last_four_numbers"
-    t.integer "credit_card_network"
+    t.string "credit_card_network"
     t.string "email"
     t.string "error_message"
     t.bigint "user_id", null: false

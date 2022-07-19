@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :contact_log do
     name { 'Juan Pedro' }
     date_of_birth { '1993-07-14' }
-    phone { '(+57) 320-432-05-09' }
+    phone { '(+57)20-432-05-09' }
     address { 'Guatemala' }
     credit_card { CreditCardValidations::Factory.random }
     sequence :email do |n|

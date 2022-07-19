@@ -25,7 +25,7 @@ RSpec.describe 'CsvFiles', type: :request do
     expect(response).to have_http_status(:ok)
   end
 
-  it 'upload failed' do
+  it 'upload failed invalid file' do
     csv_to_upload = Rack::Test::UploadedFile.new('spec/support/fixtures/contact1.txt')
     post csv_files_path, params: { csv_file: { csv: csv_to_upload } }
 

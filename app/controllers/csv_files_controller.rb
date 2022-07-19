@@ -8,6 +8,7 @@ class CsvFilesController < ApplicationController
     @csv_file = current_user.csv_files.build(csv_file_params)
     respond_to do |format|
       if @csv_file.save
+        ProcessContactsJob.perform_later @csv_file
         format.html { redirect_to root_path, notice: t('.success') }
       else
         format.html { render :new, status: :unprocessable_entity }
