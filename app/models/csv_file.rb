@@ -17,6 +17,7 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
+require 'csv'
 class CsvFile < ApplicationRecord
   before_save :assign_csv_name
 
@@ -29,6 +30,23 @@ class CsvFile < ApplicationRecord
   validates :csv, presence: true
   validate :csv_file?
 
+  after_commit :start_process_contacts, on: :create
+
+  def start_process_contacts!
+    update!(status: :Processing)
+    process_contacts
+  end
+
+  def process_contacts!
+    CSV.parse(csv.download, headers: true) do |n|
+      contact_hash = build_contact n
+      contact = Contact.new contact_hash
+      contact.save
+      create_log contact, contact_hash
+    end
+    contacts.count.positive? ? update!(status: :Finished) : update!(status: :Failed)
+  end
+
   private
 
   def csv_file?
@@ -39,5 +57,26 @@ class CsvFile < ApplicationRecord
 
   def assign_csv_name
     self.name = csv.blob.filename
+  end
+
+  def start_process_contacts
+    StartProcessContactsJob.perform_later self
+  end
+
+  def process_contacts
+    ProcessContactsJob.perform_later self
+  end
+
+  def build_contact(contact)
+    hash = contact.to_h
+    hash[:csv_file_id] = id
+    hash[:user_id] = user_id
+    hash
+  end
+
+  def create_log(contact, contact_hash)
+    errors = contact.errors.full_messages.join ', '
+    contact_hash[:error_message] = errors
+    ContactLog.create(contact_hash) unless contact.persisted?
   end
 end
