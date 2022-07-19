@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root 'contacts#index'
-  resources :csv_files
+  resources :csv_files, only: %i[new create]
+  resources :contacts, only: %i[index]
 end
