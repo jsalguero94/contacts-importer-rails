@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: contacts
 #
 #  id                   :bigint           not null, primary key
-#  address              :string
+#  address              :string           not null
 #  cc_last_four_numbers :integer
-#  credit_card          :string
+#  credit_card          :string           not null
 #  credit_card_network  :integer
-#  date_of_birth        :date
-#  email                :string
-#  name                 :string
-#  phone                :string
+#  date_of_birth        :date             not null
+#  email                :string           not null
+#  name                 :string           not null
+#  phone                :string           not null
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #  csv_file_id          :bigint           not null

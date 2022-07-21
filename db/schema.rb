@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_15_055849) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_21_201303) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,14 +61,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_15_055849) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "name"
-    t.date "date_of_birth"
-    t.string "phone"
-    t.string "address"
-    t.string "credit_card"
+    t.string "name", null: false
+    t.date "date_of_birth", null: false
+    t.string "phone", null: false
+    t.string "address", null: false
+    t.string "credit_card", null: false
     t.integer "cc_last_four_numbers"
     t.integer "credit_card_network"
-    t.string "email"
+    t.string "email", null: false
     t.bigint "user_id", null: false
     t.bigint "csv_file_id", null: false
     t.datetime "created_at", null: false
@@ -84,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_15_055849) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "csv", default: "Active Storage", null: false
     t.index ["user_id"], name: "index_csv_files_on_user_id"
   end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CsvFilesController < ApplicationController
   def index
     @csv_files = current_user.csv_files.all.page params[:page]
