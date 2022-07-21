@@ -1,7 +1,7 @@
 <div class="container-fluid" >
-<% 
+<%
   if user_signed_in?
-  
+
   %>
 <h3>
   <p>
@@ -9,14 +9,14 @@ Welcome!    <%=  user_signed_in? ? (current_user.email) : ''%>
   </p>
 </h3>
 <div class="card mb-3"> <div class="card-body">
-    <p class="card-text">Contacts imported: <%= @contacts_count %>
-Failed contacts imported: <%= @contacts_failed_count %>
+    <p class="card-text">Contacts imported: <%= stats[:contacts_count] %>
+Failed contacts imported: <%= stats[:contacts_failed_count] %>
 </p>
-<p class="card-text">CsvFiles 
-[On Hold: <%= @csv_on_hold %>
-Processing: <%= @csv_processing %>
-Finished: <%= @csv_finished %>
-Failed: <%= @csv_failed %> ]
+<p class="card-text">CsvFiles
+[On Hold: <%= stats[:csv_on_hold] %>
+Processing: <%= stats[:csv_processing] %>
+Finished: <%= stats[:csv_finished] %>
+Failed: <%= stats[:csv_failed] %> ]
 </p>
   </div>
 </div>
@@ -58,8 +58,8 @@ Failed: <%= @csv_failed %> ]
   </div>
 </nav>
 
-<% 
+<%
   end
-  %>
+%>
 
 </div>
