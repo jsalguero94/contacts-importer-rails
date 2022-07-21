@@ -1,4 +1,4 @@
-<div class="container" >
+<div class="container-fluid" >
 <% 
   if user_signed_in?
   
@@ -8,10 +8,18 @@
 Welcome!    <%=  user_signed_in? ? (current_user.email) : ''%>
   </p>
 </h3>
-<p>
-Total contacts: <%= @contacts_count %>
+<div class="card mb-3"> <div class="card-body">
+    <p class="card-text">Contacts imported: <%= @contacts_count %>
+Failed contacts imported: <%= @contacts_failed_count %>
 </p>
-</h4>
+<p class="card-text">CsvFiles 
+[On Hold: <%= @csv_on_hold %>
+Processing: <%= @csv_processing %>
+Finished: <%= @csv_finished %>
+Failed: <%= @csv_failed %> ]
+</p>
+  </div>
+</div>
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
   <div class="container-fluid">
@@ -23,12 +31,20 @@ Total contacts: <%= @contacts_count %>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Csv File
+            Contacts
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to "Show imported", contacts_path, class: 'dropdown-item' %></li>
+            <li><%= link_to "Show Failed", contact_logs_path, class: 'dropdown-item' %></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Csv Files
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><%= link_to "New", new_csv_file_path, class: 'dropdown-item' %></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Show CsvFiles</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -47,4 +63,3 @@ Total contacts: <%= @contacts_count %>
   %>
 
 </div>
-<hr>

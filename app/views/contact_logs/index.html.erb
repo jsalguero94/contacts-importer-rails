@@ -1,10 +1,11 @@
-<h1>Contacts Imported</h1>
-<%= paginate @contacts %>
+<h1>Contact Logs</h1>
+<%= paginate @contact_logs %>
 <div class="table-responsive">
 <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Errors</th>
       <th scope="col">Name</th>
       <th scope="col">Birthday</th>
       <th scope="col">Phone</th>
@@ -18,14 +19,14 @@
     </tr>
   </thead>
   <tbody>
-  <% @contacts.each_with_index do |contact, index| %>
+  <% @contact_logs.each_with_index do |contact_log, index| %>
     <tr>
       <th scope="row"><%= index + 1 %></th>
-      <%= render contact %>
+      <%= render contact_log %>
     </tr>
   <% end %>
   </tbody>
 </table>
 </div>
-<%= paginate @contacts %>
+<%= paginate @contact_logs %>
 
