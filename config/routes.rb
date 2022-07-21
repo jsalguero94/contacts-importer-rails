@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   root 'contacts#index'
   resources :csv_files, only: %i[new create]
   resources :contacts, only: %i[index]
+  resources :contact_logs, only: %i[index]
 end
