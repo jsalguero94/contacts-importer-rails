@@ -43,8 +43,8 @@ Failed: <%= @csv_failed %> ]
             Csv Files
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to "Show",csv_files_path, class: 'dropdown-item' %></li>
             <li><%= link_to "New", new_csv_file_path, class: 'dropdown-item' %></li>
-            <li><a class="dropdown-item" href="#">Show CsvFiles</a></li>
           </ul>
         </li>
         <li class="nav-item">

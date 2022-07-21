@@ -1,7 +1,10 @@
 class CsvFilesController < ApplicationController
+  def index
+    @csv_files = current_user.csv_files.all.page params[:page]
+  end
 
   def new
-    @csv_file = CsvFile.new
+    @csv_file = current_user.csv_files.build
   end
 
   def create
