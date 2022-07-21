@@ -36,9 +36,8 @@ FactoryBot.define do
     date_of_birth { '1993-07-14' }
     phone { '(+57) 320-432-05-09' }
     address { 'Guatemala' }
-    sequence :credit_card do |n|
-      network = cc_network[n] || cc_network.sample
-      CreditCardValidations::Factory.random(network)
+    sequence :credit_card do
+      CreditCardValidations::Factory.random(cc_network.sample)
     end
     sequence :email do |n|
       "juan#{n}@gmail.com"
