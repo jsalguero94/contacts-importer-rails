@@ -1,6 +1,6 @@
 <td class="table-danger"><%= contact_log.error_message %></td>
 <td><%= contact_log.name %></td>
-<td><%= contact_log.date_of_birth %></td>
+<td><%= contact_log.date_of_birth.strftime('%Y %B %-d') if contact_log.date_of_birth %></td>
 <td><%= contact_log.phone %></td>
 <td><%= contact_log.address %></td>
 <td>...<%= contact_log.credit_card[-4..] %></td>

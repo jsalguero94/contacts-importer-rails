@@ -1,5 +1,5 @@
 <td><%= contact.name %></td>
-<td><%= contact.date_of_birth %></td>
+<td><%= contact.date_of_birth.strftime('%Y %B %-d') %></td>
 <td><%= contact.phone %></td>
 <td><%= contact.address %></td>
 <td>...<%= contact.credit_card[-4..] %></td>
