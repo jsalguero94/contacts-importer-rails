@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'CsvFiles', type: :request do
+RSpec.describe 'CsvFiles Request', type: :request do
   before do
     new_user = create :user
     sign_in new_user

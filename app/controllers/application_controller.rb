@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   private
 
   def util_variables
+    return unless user_signed_in?
+
     contacts_counts
     csv_counts
   end
