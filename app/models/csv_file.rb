@@ -3,6 +3,7 @@
 # Table name: csv_files
 #
 #  id         :bigint           not null, primary key
+#  csv        :string           default("Active Storage"), not null
 #  name       :string
 #  status     :integer          default("On Hold")
 #  created_at :datetime         not null

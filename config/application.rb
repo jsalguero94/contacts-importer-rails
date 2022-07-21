@@ -9,6 +9,7 @@ require "active_storage/engine"
 require "action_controller/railtie"
 require "action_text/engine"
 require "action_view/railtie"
+require "action_mailer/railtie"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
