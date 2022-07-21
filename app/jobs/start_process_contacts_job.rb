@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StartProcessContactsJob < ApplicationJob
   queue_as :default
 

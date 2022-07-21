@@ -125,4 +125,3 @@ group :development do
   # Adds number of SQL queries that were done during processing request
   gem 'sql_queries_count', '~> 0.0.1'
 end
-
