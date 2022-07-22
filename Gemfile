@@ -34,13 +34,13 @@ gem 'cssbundling-rails'
 gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
+# gem 'redis', '~> 4.0'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem 'kredis'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -55,7 +55,19 @@ gem 'sassc-rails'
 # gem 'image_processing', '~> 1.2'
 
 # Simple, efficient background processing for Ruby.
-gem 'sidekiq', '~> 5.0', '>= 5.0.5'
+gem 'sidekiq', '>= 6.4.1'
+
+# Flexible authentication solution for Rails with Warden.
+gem 'devise'
+
+# A library for setting up Ruby objects as test data.
+gem 'factory_bot_rails'
+
+# Ruby gem validation for credit card
+gem 'credit_card_validations'
+
+# Pagination
+gem 'kaminari'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -71,6 +83,9 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.9', '>= 1.9.1', require: false
   gem 'rubocop-rails', '~> 2.9', '>= 2.9.1', require: false
   gem 'rubocop-rspec', '~> 2.1', require: false
+
+  # Increase your application's performance by reducing the number of queries it makes.
+  gem 'bullet', '~> 7.0'
 end
 
 group :test do
@@ -97,8 +112,6 @@ group :development do
   gem 'brakeman'
   # bundler-audit provides patch-level verification for Bundled apps.
   gem 'bundler-audit', '~> 0.9.0.1'
-  # Increase your application's performance by reducing the number of queries it makes.
-  gem 'bullet', '~> 7.0'
   # Checks the consistency of the database constraints with the application validations
   gem 'database_consistency', '~> 1.1', '>= 1.1.1'
   # Check various places in your code that could be faster.
@@ -112,4 +125,3 @@ group :development do
   # Adds number of SQL queries that were done during processing request
   gem 'sql_queries_count', '~> 0.0.1'
 end
-

@@ -1,0 +1,17 @@
+<td><%= csv_file.name %></td>
+<td
+  class = "table-<%=
+    case csv_file.status
+      when 'On Hold'
+        'info'
+      when 'Processing'
+        'warning'
+      when 'Failed'
+        'danger'
+      when 'Finished'
+        'success'
+      end
+  %>"
+  ><%= csv_file.status %></td>
+<td><%= csv_file.created_at %></td>
+<td><%= csv_file.updated_at %></td>
